@@ -1,0 +1,6 @@
+Ahmad,45,back pain,2
+bilal,56,fracture,2
+Asjad,20,Back Pain,2
+Ali,12,flu,3
+wazia,20,sick,3
+raffay,45,flu,3

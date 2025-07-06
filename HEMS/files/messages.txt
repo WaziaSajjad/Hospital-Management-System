@@ -1,0 +1,5 @@
+Nurse: Patient Ali had a sleepless night, as a side affect to medicine
+Nurse: Bilal has migrane since two days
+Nurse: Ali fell down the stairs
+Nurse: Asjad has back pain
+Nurse: raffay is feeling sick

@@ -1,0 +1,57 @@
+cmake_minimum_required(VERSION 3.15)
+project(HEMS)
+
+# Set C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Include directories
+include_directories(
+    ${PROJECT_SOURCE_DIR}/include
+    "C:/dev/fltk"                     # FLTK base includes
+    "C:/dev/fltk/build/FL"            # FLTK config headers (fl_config.h)
+)
+
+# Source files
+set(SRC
+    main.cpp
+    src/LoginWindow.cpp
+    src/DoctorMainWindow.cpp
+    src/NurseMainWindow.cpp
+    src/AdminMainWindow.cpp
+)
+
+# Create executable
+add_executable(${PROJECT_NAME} ${SRC})
+
+# Link FLTK static libraries (.a)
+target_link_libraries(${PROJECT_NAME}
+    "C:/dev/fltk/build/lib/libfltk.a"
+    "C:/dev/fltk/build/lib/libfltk_images.a"
+    "C:/dev/fltk/build/lib/libfltk_forms.a"
+    "C:/dev/fltk/build/lib/libfltk_gl.a"
+    "C:/dev/fltk/build/lib/libfltkjpeg.a"
+    "C:/dev/fltk/build/lib/libfltkz.a"
+)
+
+# Add pthread for threading support (if needed)
+find_package(Threads REQUIRED)
+target_link_libraries(${PROJECT_NAME} Threads::Threads)
+
+# Link necessary Windows libraries
+if(WIN32)
+    target_link_libraries(${PROJECT_NAME}
+        ws2_32
+        gdi32
+        comctl32
+        comdlg32
+        ole32
+        oleaut32
+        uuid
+        imm32
+        version
+        winmm
+        gdiplus
+        winspool
+    )
+endif()
